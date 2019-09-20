@@ -52,6 +52,16 @@ class SDK {
     await this._sendTrade(tx, details);
   }
 
+  async getTokens() {
+    const tokens = await api.getTokens(params);
+    return tokens;
+  }
+
+  async getTokensFull(params) {
+    const tokens = await api.getTokensFull();
+    return tokens;
+  }
+
   async validate(tx) {
     if (!(this.provider) || !(this.signer)) {
       this.statusHandler('web3_undefined');

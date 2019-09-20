@@ -40,6 +40,22 @@ const api = {
     const price = response.data;
     return price;
   },
+  async getTokens(params) {
+    const dexagClient = axios.create({
+      baseURL: 'https://api.dex.ag/',
+    });
+    const response = await dexagClient.get('/token-list', { });
+    const tokens = response.data;
+    return tokens;
+  },
+  async getTokensFull(params) {
+    const dexagClient = axios.create({
+      baseURL: 'https://api.dex.ag/',
+    });
+    const response = await dexagClient.get('/token-list-full', { });
+    const tokens = response.data;
+    return tokens;
+  }
 };
 
 export default api;
